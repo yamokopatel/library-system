@@ -7,3 +7,4 @@ use App\Http\Controllers\ReaderController;
 
 Route::apiResource('/books', BookController::class);
 Route::apiRecource('/readers', ReaderController::class);
+Route::apiRecource('/loans', LoanController::class);

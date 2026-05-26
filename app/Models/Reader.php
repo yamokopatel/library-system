@@ -10,4 +10,9 @@ class Reader extends Model
         'name',
         'email'
     ];
+
+    public function loans()
+    {
+        return $this->hasMany(Loan::class);
+    }
 }

@@ -33,7 +33,7 @@ class ReaderController extends Controller
             'email' => 'required|max:255|unique:readers,email'
         ]);
         $reader = Reader::find($id);
-        return Reader::update($fields);
+        return $reader->update($fields);
     }
 
     public function destroy($id)

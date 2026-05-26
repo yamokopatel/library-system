@@ -12,4 +12,9 @@ class Book extends Model
         'isbn',
         'count'
     ];
+
+    public function loans()
+    {
+        return $this->hasMany(Loan::class);
+    }
 }

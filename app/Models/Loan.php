@@ -10,4 +10,13 @@ class Loan extends Model
         'loan_date',
         'return_date'
     ];
+
+    public function reader()
+    {
+        return $this->belongsTo(Reader::class);
+    }
+    public function book()
+    {
+        return $this->belongsTo(Book::class);
+    }
 }
