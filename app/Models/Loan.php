@@ -7,6 +7,8 @@ use Illuminate\Database\Eloquent\Model;
 class Loan extends Model
 {
     protected $fillable = [
+        'book_id', //FK
+        'reader_id', //FK
         'loan_date',
         'return_date'
     ];

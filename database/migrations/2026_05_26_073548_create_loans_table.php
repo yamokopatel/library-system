@@ -13,6 +13,10 @@ return new class extends Migration
     {
         Schema::create('loans', function (Blueprint $table) {
             $table->id();
+            $table->foreign('book_id')->references('id')->on('books')->onDelete('no action');
+            $table->foreign('reader_id')->references('id')->on('readers')->onDelete('no action');
+            $table->date('loan_date');
+            $table->date('return_date');
             $table->timestamps();
         });
     }

@@ -20,6 +20,8 @@ class LoanController extends Controller
     public function store(Request $request)
     {
         $fields = $request->validate([
+            'book_id' => 'required|exists:books,id',
+            'reader_id' => 'required|exists:readers,id',
             'loan_date' => 'required|date',
             'return_date' => 'required|date|after_or_equal:loan_date'
         ]);
@@ -29,6 +31,8 @@ class LoanController extends Controller
     public function update(Request $request, $id)
     {
         $fields = $request->validate([
+            'book_id' => 'required|exists:books,id',
+            'reader_id' => 'required|exists:readers,id',
             'loan_date' => 'required|date',
             'return_date' => 'required|date|after_or_equal:loan_date'
         ]);
