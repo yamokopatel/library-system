@@ -6,5 +6,5 @@ use App\Http\Controllers\LoanController;
 use App\Http\Controllers\ReaderController;
 
 Route::apiResource('/books', BookController::class);
-Route::apiRecource('/readers', ReaderController::class);
-Route::apiRecource('/loans', LoanController::class);
+Route::apiResource('/readers', ReaderController::class);
+Route::apiResource('/loans', LoanController::class);

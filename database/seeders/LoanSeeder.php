@@ -5,6 +5,8 @@ namespace Database\Seeders;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
+use App\Models\Book;
+use App\Models\Reader;
 
 class LoanSeeder extends Seeder
 {
@@ -13,6 +15,14 @@ class LoanSeeder extends Seeder
      */
     public function run(): void
     {
+        // 1. PĀRBAUDE: Ja datubāzē nav grāmatu, mēs tās uzģenerējam tepat uz vietas testam
+        if (Book::count() === 0) {
+            $this->call(BookSeeder::class);
+        }
+        // 2. PĀRBAUDE: Ja datubāzē nav lasītāju, mēs tos uzģenerējam tepat uz vietas testam
+        if (Reader::count() === 0) {
+            $this->call(ReaderSeeder::class);
+        }
         for($a = 0; $a < 7; $a++)
         {
             $randomBookId = DB::table('books')->inRandomOrder()->value('id');

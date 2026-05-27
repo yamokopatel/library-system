@@ -62,7 +62,7 @@ it('could successfully delete reader', function(){
     $this->seed(ReaderSeeder::class);
     $reader = Reader::first();
     $response = $this->deleteJson("/api/readers/{$reader->id}");
-    $response->assertStatus(204);
+    $response->assertStatus(200);
     $this->assertDatabaseMissing('readers', ['id' => $reader->id]);
     $this->assertEquals(14, Reader::count());
 });

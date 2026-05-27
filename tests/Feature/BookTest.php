@@ -129,7 +129,7 @@ it('var veiksmīgi izdzēst grāmatu', function () {
     $response = $this->deleteJson("/api/books/{$book->id}");
 
     // Ja Tavs kontrolieris neatgriež saturu, tad 204. Ja atgriež JSON ziņojumu, nomaini uz 200.
-    $response->assertStatus(204);
+    $response->assertStatus(200);
 
     // Pārbauda vai grāmata tiešām ir izdzēsta no DB
     $this->assertDatabaseMissing('books', ['id' => $book->id]);
